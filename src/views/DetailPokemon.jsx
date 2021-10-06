@@ -116,7 +116,6 @@ const DetailPokemon = () => {
 
   useEffect(() => {
     if (pokemon instanceof Array) {
-      console.log("no existe pokemon");
       dispatch(findInfoOnePokemon(name));
     } else {
       dispatch(findEvolution(pokemon.species.url));

@@ -17,7 +17,7 @@ import {
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 import { DeleteMypokemon } from "../redux/actions/MyPokemonsAction";
-import { findInfoOnePokemon, onePokemon } from "../redux/actions/pokemonActions";
+import { onePokemon } from "../redux/actions/pokemonActions";
 
 const prop = {
   containerCard: {
@@ -55,9 +55,9 @@ const CardMyPokemons = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const infoPokemon = (name) => {
-    dispatch(findInfoOnePokemon(name));
-    history.push(`/pokemon/${name}`);
+  const infoPokemon = (pokemon) => {
+    dispatch(onePokemon(pokemon));
+    history.push(`/pokemon/${pokemon.name}`);
   };
 
   const DeleteMyPokemon = (idPokemon, idUser) => {
@@ -87,7 +87,7 @@ const CardMyPokemons = () => {
               alignItems={prop.cardHeader.alignItems}
               hoverOpacity={prop.containerCard.hoverOpacity}
               hoverCursor={prop.containerCard.hoverCursor}
-              onClick={() => infoPokemon(pokemon.name)}
+              onClick={() => infoPokemon(pokemon)}
             >
               <ContainerSubTitle
                 width={prop.cardHeaderSubtitle.width}
@@ -115,7 +115,7 @@ const CardMyPokemons = () => {
               justifyContent={prop.cardBody.justifyContent}
               hoverOpacity={prop.containerCard.hoverOpacity}
               hoverCursor={prop.containerCard.hoverCursor}
-              onClick={() => infoPokemon(pokemon.name)}
+              onClick={() => infoPokemon(pokemon)}
             >
               <Img variant="top" src={pokemon.sprites.front_default} />
 
