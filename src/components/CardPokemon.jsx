@@ -40,7 +40,7 @@ const prop = {
     justifyContent: "center",
   },
   cardFooter: {
-    width: "100",
+    width: "100%",
   },
 };
 
@@ -156,7 +156,7 @@ const CardPokemon = () => {
                 hoverCursor={prop.containerCard.hoverCursor}
                 onClick={() => AddMyPokemons(pokemon, auth.id)}
               >
-                Agregar a mi coleccióon
+                Agregar a mi colección
               </ContainerText>
             ) : null}
           </Container>
