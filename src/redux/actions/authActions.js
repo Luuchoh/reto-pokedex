@@ -93,6 +93,20 @@ export const loginGoogle = () => {
       .signInWithPopup(google)
       .then(({ user }) => {
         dispatch(login(user));
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: user.displayName,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }).catch((e) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: e,
+          footer: "",
+        });
       });
   };
 };
@@ -105,6 +119,20 @@ export const loginFacebook = () => {
       .signInWithPopup(facebook)
       .then(({ user }) => {
         dispatch(login(user));
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: user.displayName,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }).catch((e) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: e,
+          footer: "",
+        });
       });
   };
 };
